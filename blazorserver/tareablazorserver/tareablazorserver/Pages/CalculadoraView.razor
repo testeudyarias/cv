@@ -1,0 +1,74 @@
+﻿@page "/calculadoraview"
+@using tareablazorserver.Data
+
+<PageTitle>Index</PageTitle>
+
+<h1>Calculadora</h1>
+
+<EditForm Model="c" >
+
+  <div class="form-group">
+    <label for="exampleInputEmail1">Valor 1</label>
+    <InputNumber @bind-Value="c.Valor1" placeholder="Valor 1" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Valor 2</label>
+    <InputNumber @bind-Value="c.Valor2" placeholder="Valor 2"   class="form-control" id="exampleInputPassword1"/>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Resultado:</label>
+     <span class="form-control"> @c.Resultado</span>
+  </div>
+  <br />
+  <div class="form-group">
+    <button class="btn btn-success" type="button" title="Cero" @onclick="Cero">0</button>
+     
+    <button class="btn btn-success" type="button" title="Sumar" @onclick="Sumar">+</button>
+    <button class="btn btn-success" type="button" title="Restar" @onclick="Restar">-</button>
+    <button class="btn btn-success" type="button" title="Multiplicar" @onclick="Multiplicar">*</button>
+    <button class="btn btn-success" type="button" title="Dividir" @onclick="Dividir">/</button>
+  </div>
+</EditForm>
+
+
+
+
+
+
+
+@code{
+    private Calculadora c = new Calculadora();
+
+    public void Sumar()
+    {
+            c.SignoOperacion = "+";
+            StateHasChanged();
+    }
+    
+    public void Restar()
+    {
+            c.SignoOperacion = "-";
+            StateHasChanged();
+    }
+    
+    public void Dividir()
+    {
+            c.SignoOperacion = "/";
+            StateHasChanged();
+    }
+    
+    public void Multiplicar()
+    {
+            c.SignoOperacion = "*";
+            StateHasChanged();
+    }
+    public void Cero()
+    {
+            c.SignoOperacion = "";
+            StateHasChanged();
+    }
+
+
+
+}
+

@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "itDM5riNlNPe8eX6vwW+j1ZJBNK17O9uz7HaOCJvRKaaJqtH5itoDLAHHRjvnfZ4jLVt3B7a+9uVB/2zUV7U6Q==",
+  "success": true,
+  "projectFilePath": "C:\\universidad\\cv\\blazorserver\\tareablazorserver\\tareablazorserver\\tareablazorserver.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\developer\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.14.0\\microsoft.visualstudio.azure.containers.tools.targets.1.14.0.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,69 @@
+﻿@page "/tablamultiplicarview"
+@using tareablazorserver.Data
+
+<PageTitle>Index</PageTitle>
+
+<h1>Tabla Multiplicar</h1>
+
+<EditForm Model="t" >
+
+  <div class="form-group">
+    <label for="exampleInputEmail1">Multiplicador</label>
+    <InputNumber @bind-Value="t.Numero" placeholder="Multiplicador" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Tope</label>
+    <InputNumber @bind-Value="t.Tope" placeholder="Tope de la tabla de multiplicar"   class="form-control" id="exampleInputPassword1"/>
+  </div>
+  <br />
+  <div class="form-group">
+    <button class="btn btn-success" type="button" title="Resultado" @onclick="Resultado">Resultado</button>
+  </div>
+</EditForm>
+
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th> Multiplicador </th>
+            <th> Multiplicando </th>
+            <th> Producto </th>
+        </tr>
+    </thead>
+     <tbody>
+         @foreach (var item in t.Detalle)
+        {
+        <tr>
+            <td> @item.Multiplicador </td>
+            <td> @item.Multiplicando </td>
+            <td> @item.Producto </td>
+        </tr>    
+        }
+
+    </tbody>
+    <tfoot>
+        <tr>
+            <th> Multiplicador </th>
+            <th> Multiplicando </th>
+            <th> Producto </th>
+        </tr>
+    </tfoot>
+</table>
+
+
+
+
+
+
+@code{
+    private TablaMultiplicar t = new TablaMultiplicar();
+
+    public void Resultado()
+    {
+            t.Calcular();
+            StateHasChanged();
+    }
+
+
+}
+
